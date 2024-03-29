@@ -12,16 +12,16 @@ export const routes: Routes = [
     component: MainViewComponent
   },
   {
+    path: "formations/create",
+    component: FormationCreateViewComponent
+  },
+  {
     path: "formations/:id",
     component: FormationDetailsComponent
   },
   {
     path: "formations/update/:id",
     component: FormationUpdateViewComponent,
-  },
-  {
-    path: "formations/create",
-    component: FormationCreateViewComponent
   },
   {
     path: "membres/create",

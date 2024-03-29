@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-between m-3" >
+  <h3>Membres</h3>
+  <button class="btn btn-primary" (click)="createNew()">Nouveau</button>
+</div>
+
+<table class="table w-75 table-striped mx-auto">
+  <thead>
+    <td scope="column">Nom</td>
+    <td scope="column">Email</td>
+    <td scope="column" class="w-25"></td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let membre of membres">
+      <td>{{ membre.nom }}</td>
+      <td>{{ membre.email }}</td>
+      <td class="d-flex gap-1 justify-content-end">
+        <button class="btn btn-info" (click)="updateMembre(membre.id)">Modifier</button>
+        <button class="btn btn-danger" (click)="deleteMembre(membre.id)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

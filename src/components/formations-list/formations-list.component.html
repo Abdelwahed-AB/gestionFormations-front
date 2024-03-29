@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-between m-3" >
+  <h3>Formations</h3>
+  <button class="btn btn-primary" (click)="createNew()">Nouveau</button>
+</div>
+
+<form action="javascript:void(0)" class="w-25 mx-auto m-3">
+  <input type="text" name="search" id="search" class="form-control" placeholder="Search" (input)="search()" [(ngModel)]="searchStr">
+</form>
+
+<table class="table table-striped w-75 mx-auto">
+  <thead>
+    <td scope="column">Titre</td>
+    <td scope="column">Description</td>
+    <td scope="column">Date Debut</td>
+    <td scope="column">Date Fin</td>
+    <td scope="column" class="w-25"></td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let formation of formations">
+      <td>{{ formation.titre }}</td>
+      <td>{{ formation.description }}</td>
+      <td>{{ formation.dateDebut.toLocaleString() }}</td>
+      <td>{{ formation.dateFin.toLocaleString() }}</td>
+      <td class="d-flex gap-1 justify-content-end">
+        <button class="btn btn-primary" (click)="viewDetails(formation.id)">Afficher</button>
+        <button class="btn btn-info" (click)="updateFormation(formation.id)">Modifier</button>
+        <button class="btn btn-danger" (click)="deleteFormation(formation.id)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,27 @@
+<form action="javascript:void(0)" class="w-25 mx-auto my-5">
+  <div class="d-flex justify-content-between">
+    <h3 class="mb-4">{{formTitle}}</h3>
+    <button class="btn btn-primary h-50" (click)="back()">Retourner</button>
+  </div>
+  <div class="mb-3">
+    <label for="title" class="form-label">Titre</label>
+    <input class="form-control" type="text" name="title" id="title" placeholder="Titre" [(ngModel)]="formation.titre">
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="description">Description</label>
+    <textarea class="form-control" name="description" id="" cols="30" rows="10" placeholder="Description" [(ngModel)]="formation.description"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="startDate">Date Debut</label>
+    <input class="form-control" type="date" name="startDate" id="startDate" [(ngModel)]="formation.dateDebut">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="endDate">Date fin</label>
+    <input class="form-control" type="date" name="endDate" id="endDate" [(ngModel)]="formation.dateFin">
+  </div>
+
+  <button class="btn btn-success" (click)="submit()">Soumettre</button>
+</form>
+

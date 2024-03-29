@@ -1,0 +1,89 @@
+<form action="javascript:void(0)" class="w-75 mx-auto my-5">
+  <div class="d-flex justify-content-between">
+    <h3 class="mb-4">Details formation</h3>
+    <button class="btn btn-primary h-50" (click)="back()">Retourner</button>
+  </div>
+  <div class="mb-3">
+    <label for="title" class="form-label">Titre</label>
+    <input
+      disabled
+      class="form-control"
+      type="text"
+      name="title"
+      id="title"
+      placeholder="Titre"
+      [value]="formation.titre"
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="description">Description</label>
+    <textarea
+      disabled
+      class="form-control"
+      name="description"
+      id=""
+      cols="30"
+      rows="5"
+      placeholder="Description"
+      [value]="formation.description"
+    ></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="startDate">Date Debut</label>
+    <input
+      disabled
+      class="form-control"
+      type="date"
+      name="startDate"
+      id="startDate"
+      [value]="formation.dateDebut"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="endDate">Date fin</label>
+    <input
+      disabled
+      class="form-control"
+      type="date"
+      name="endDate"
+      id="endDate"
+      [value]="formation.dateFin"
+    />
+  </div>
+
+  <h4 class="mb-3">Membres</h4>
+
+  <div class="mb-3 d-flex gap-2">
+    <select class="form-select" name="membreSelect" id="membreSelect" [(ngModel)]="selectedMemberId">
+      <option disabled selected value="0">-- Choisir un membre --</option>
+      <option *ngFor="let membre of allMembres" value="{{membre.id}}">{{ membre.nom }}</option>
+    </select>
+    <button class="btn btn-success" (click)="inscrire()">Inscrire</button>
+  </div>
+
+  <div *ngIf="membres.length != 0" class="mb-3">
+    <table class="table mx-auto">
+      <thead>
+        <th scope="column">Nom</th>
+        <th scope="column">Email</th>
+        <th scope="column"></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let membre of membres">
+          <td>{{ membre.nom }}</td>
+          <td>{{ membre.email }}</td>
+          <td class="d-flex justify-content-end">
+            <button
+              class="btn btn-danger"
+              (click)="desinscrire(membre.id)"
+            >
+              Desinscrire
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</form>
